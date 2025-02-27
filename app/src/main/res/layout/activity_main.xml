@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView to display Device Owner status -->
+    <TextView
+        android:id="@+id/deviceOwnerStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Device Owner Status: Unknown"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Button to Lock the Screen -->
+    <Button
+        android:id="@+id/btnLockScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lock Screen"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Button to Enable/Disable Device Owner -->
+    <Button
+        android:id="@+id/btnToggleDeviceOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable Device Owner"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Button to Enable/Disable Kiosk Mode -->
+    <Button
+        android:id="@+id/btnToggleKioskMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable Kiosk Mode"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Button to Show QR Provisioning Content -->
+    <Button
+        android:id="@+id/btnShowQRContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate QR Code"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ImageView to display QR Code -->
+    <ImageView
+        android:id="@+id/qrCodeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+    <!-- TextView to display instructions -->
+    <TextView
+        android:id="@+id/qrContentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:textIsSelectable="true" />
+
+</LinearLayout>
