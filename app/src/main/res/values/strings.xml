@@ -2,4 +2,5 @@
     <string name="app_name">androidTest</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_provisioning_mode">ProvisioningModeActivity</string>
 </resources>

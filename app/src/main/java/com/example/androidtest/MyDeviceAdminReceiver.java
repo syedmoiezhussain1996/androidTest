@@ -25,32 +25,30 @@ public class MyDeviceAdminReceiver extends DeviceAdminReceiver {
     @Override
     public void onProfileProvisioningComplete(Context context, Intent intent) {
         super.onProfileProvisioningComplete(context, intent);
-        
+        Toast.makeText(context, "onProfileProvisioningComplete", Toast.LENGTH_SHORT).show();
         // Get the admin component name
-        ComponentName adminComponent = getComponentName(context);
-        
-        // Get the device policy manager
-        DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        
-        // Set policies for device owner mode
-        if (dpm.isDeviceOwnerApp(context.getPackageName())) {
-            // Set device owner policies
-            dpm.setLockTaskPackages(adminComponent, new String[]{context.getPackageName()});
-            
-            // Optional: Set additional policies as needed
-            dpm.setStatusBarDisabled(adminComponent, false);
-            dpm.setKeyguardDisabled(adminComponent, false);
-            
-            // Start your main activity
-            Intent launchIntent = new Intent(context, MainActivity.class);
-            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(launchIntent);
-            
-            Toast.makeText(context, "Device Owner Provisioning Completed", Toast.LENGTH_LONG).show();
-        }
+//        ComponentName adminComponent = getComponentName(context);
+//
+//        // Get the device policy manager
+//        DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+//
+//        // Set policies for device owner mode
+//        if (dpm.isDeviceOwnerApp(context.getPackageName())) {
+//            // Set device owner policies
+//            dpm.setLockTaskPackages(adminComponent, new String[]{context.getPackageName()});
+//
+//            // Optional: Set additional policies as needed
+//            dpm.setStatusBarDisabled(adminComponent, false);
+//            dpm.setKeyguardDisabled(adminComponent, false);
+//
+//            // Start your main activity
+//            Intent launchIntent = new Intent(context, MainActivity.class);
+//            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(launchIntent);
+//
+//            Toast.makeText(context, "Device Owner Provisioning Completed", Toast.LENGTH_LONG).show();
+//        }
     }
-    
-    public static ComponentName getComponentName(Context context) {
-        return new ComponentName(context.getApplicationContext(), MyDeviceAdminReceiver.class);
-    }
+
+
 }

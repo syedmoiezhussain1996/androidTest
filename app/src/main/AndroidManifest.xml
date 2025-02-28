@@ -19,6 +19,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidTest"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".ProvisioningModeActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_provisioning_mode"-->
+<!--            android:theme="@style/Theme.AndroidTest" />-->
+        <activity
+            android:name=".AdminPolicyComplianceActivity"
+            android:exported="true"
+            android:enabled="@bool/provision_mode_compliance_enabled"
+
+            android:theme="@style/Theme.AppCompat"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.app.action.ADMIN_POLICY_COMPLIANCE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ProvisioningModeActivity"
+            android:enabled="@bool/provision_mode_compliance_enabled"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.app.action.GET_PROVISIONING_MODE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -32,6 +62,7 @@
             <intent-filter>
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -47,8 +78,11 @@
                 android:resource="@xml/device_admin_receiver" />
 
             <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE" />
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.app.action.PROFILE_OWNER_CHANGED"/>
+                <action android:name="android.app.action.DEVICE_OWNER_CHANGED"/>
             </intent-filter>
         </receiver>
     </application>
